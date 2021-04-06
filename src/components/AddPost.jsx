@@ -75,14 +75,17 @@ export class AddPost extends React.Component{
                 <h4 className="text-center my-3">Форма для создания статьи</h4>
                 <form onSubmit={this.sendForm}>
                     <div className="mb-3">
-                        <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" className="form-control" placeholder="Заголовок статьи"/>
+                        <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" className="form-control"
+                               placeholder="Заголовок статьи"/>
                         <p style={{color:"red"}}>{this.state.info}</p>
                     </div>
                     <div className="mb-3">
-                        <textarea value={this.state.text} onChange={this.handleInputChange} name="text" type="text" className="form-control" placeholder="Текст поста"/>
+                        <textarea value={this.state.text} onChange={this.handleInputChange} name="text" type="text" className="form-control"
+                                  placeholder="Текст статьи"/>
                     </div>
                     <div className="mb-3">
-                        <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" className="form-control" placeholder="author"/>
+                        <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" className="form-control"
+                               placeholder="author"/>
                     </div>
                     <div className="mb-3">
                         <input type="submit" disabled={this.state.submitBtn}  className="form-control btn btn-primary" value="Добавить"/>
