@@ -32,7 +32,7 @@ export class Post extends React.Component{
         return <div>
             <h3 className="text-center">{this.state.title}</h3>
             <p>{this.state.text}</p>
-            <p>Добавлено: {this.state.date_added}</p>
+            <p>Добавлено: {this.state.dare_added}</p>
             <p>Автор: {this.state.author}</p>
         </div>
     }
