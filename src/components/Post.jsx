@@ -6,11 +6,10 @@ export class Post extends React.Component{
         this.state = {
             title: "",
             text: "",
-            date_added: "",
+            dare_added: "",
             author: ""
         }
     }
-
     componentDidMount() { // 3
         const formData = new FormData();
         formData.append("id",this.props.match.params.id);
@@ -27,7 +26,6 @@ export class Post extends React.Component{
                 })
             })
     }
-
     render() { // 2
         return <div>
             <h3 className="text-center">{this.state.title}</h3>

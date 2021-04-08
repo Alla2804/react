@@ -17,23 +17,22 @@ export class AddPost extends React.Component{
     }
     sendForm(event){
         event.preventDefault();
-        if(this.state.info === ""){
+        if(this.state.info === "") {
             const formData = new FormData();
             formData.append("title",this.state.title);
             formData.append("text",this.state.text);
             formData.append("author", this.state.author);
-            fetch("http://creatingws.beget.tech/php/addPost.php",{
+            fetch('http://creatingws.beget.tech/php/addPost.php',{
                 method: "POST",
                 body: formData
             }).then(response=>response.json())
-                .then(result=>{
+                .then(result => {
                     this.setState({
                         redirect: true
                     })
                 })
         }
     }
-
     handleInputChange(event){
         const value = event.target.value;
         const name = event.target.name;
@@ -47,7 +46,6 @@ export class AddPost extends React.Component{
             }
             const formData = new FormData();
             formData.append("title",value);
-            //backend file
             fetch("http://creatingws.beget.tech/php/checkTitle.php",{
                 method: "POST",
                 body: formData
@@ -72,23 +70,20 @@ export class AddPost extends React.Component{
             return <Redirect to="/" />
         else
             return <div className="col-md-5 my-5 mx-auto">
-                <h4 className="text-center my-3">Форма для создания статьи</h4>
+                <h4 className="text-center my-3">Форма для добавления статьи</h4>
                 <form onSubmit={this.sendForm}>
                     <div className="mb-3">
-                        <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" className="form-control"
-                               placeholder="Заголовок статьи"/>
+                        <input value={this.state.title} onChange={this.handleInputChange} name="title" type="text" className="form-control" placeholder="Заголовок статьи"/>
                         <p style={{color:"red"}}>{this.state.info}</p>
                     </div>
                     <div className="mb-3">
-                        <textarea value={this.state.text} onChange={this.handleInputChange} name="text" type="text" className="form-control"
-                                  placeholder="Текст статьи"/>
+                        <textarea value={this.state.text} onChange={this.handleInputChange} name="text" type="text" className="form-control" placeholder="Текст статьи"/>
                     </div>
                     <div className="mb-3">
-                        <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" className="form-control"
-                               placeholder="author"/>
+                        <input value={this.state.author} onChange={this.handleInputChange} name="author" type="text" className="form-control" placeholder="author"/>
                     </div>
                     <div className="mb-3">
-                        <input type="submit" disabled={this.state.submitBtn}  className="form-control btn btn-primary" value="Добавить"/>
+                        <input type="submit" disabled={this.state.submitBtn} className="form-control btn btn-primary" value="Добавить"/>
                     </div>
                 </form>
             </div>
